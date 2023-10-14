@@ -1,16 +1,4 @@
-# reddit_new
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Bài nộp Classroom số 1 : 
+- Model của App hiện tại gồm : User , Community 
+- UI : đăng nhập, màn hình chính, drawer UI , profile UI, community UI
+- Chức năng đã hoàn thiện : đăng nhập, tìm kiếm
