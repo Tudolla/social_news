@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "380664274278",
+    "project_id": "reddit-news-a7692",
+    "storage_bucket": "reddit-news-a7692.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380664274278:android:d79aeb5d48edad8d693ca7",
+        "android_client_info": {
+          "package_name": "com.example.reddit_new"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsu0MVzPrytsR_3irRmqMmbEYQcN794uM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
