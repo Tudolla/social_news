@@ -2,7 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:reddit_new/core/constants/constants.dart';
+import 'package:reddit_new/core/failure.dart';
 import 'package:reddit_new/core/providers/firebase_providers.dart';
 import 'package:reddit_new/core/providers/storage_repository_provider.dart';
 import 'package:reddit_new/core/utils.dart';
@@ -68,6 +70,25 @@ class CommunityController extends StateNotifier<bool> {
       Routemaster.of(context).pop();
     });
   }
+  // join - cho nay rat hay - thay vi tao 2 Function join&leave thi
+  // chi can tao 1 Function , lay BuildContext cua userId va so sanh voi userId trong Provider
+
+  void joinCommunity(Community community, BuildContext context) async {
+    final user = _ref.read(userProvider)!;
+    Either<Failure, void> res;
+    if (community.members.contains(user.uid)) {
+      res = await _communityRepository.leaveCommunity(community.name, user.uid);
+    } else {
+      res = await _communityRepository.joinCommunity(community.name, user.uid);
+    }
+    res.fold((l) => showSnackBar(context, l.message), (r) {
+      if (community.members.contains(user.uid)) {
+        showSnackBar(context, 'You have left community :()');
+      } else {
+        showSnackBar(context, 'You have joined community :))');
+      }
+    });
+  }
 
   Stream<List<Community>> getUserCommunitites() {
     final uid = _ref.read(userProvider)!.uid;
@@ -114,5 +135,12 @@ class CommunityController extends StateNotifier<bool> {
 
   Stream<List<Community>> searchCommunity(String query) {
     return _communityRepository.searchCommunity(query);
+  }
+
+  void addMods(
+      String communityName, List<String> uids, BuildContext context) async {
+    final res = await _communityRepository.addMods(communityName, uids);
+    res.fold((l) => showSnackBar(context, l.message),
+        (r) => Routemaster.of(context).pop());
   }
 }
