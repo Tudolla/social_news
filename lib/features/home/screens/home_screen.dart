@@ -72,11 +72,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: '',
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_a_photo),
-            label: '',
+            icon: Icon(Icons.add),
+            label: 'Add',
           ),
         ],
         onTap: onPageChanged,
